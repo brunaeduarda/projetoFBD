@@ -1,0 +1,15 @@
+Vendas:
+body: { "valor_venda": "100.00" }
+body: { "valor_venda": "60.00" }
+body: { "valor_venda": "60.07" }
+body: { "valor_venda": "160.07" }
+
+Produtos: 
+body: { "marca": "Coca", "nome_produto": "Coca-cola", "valor_produto": "8" }
+body: { "marca": "Coca", "nome_produto": "Fanta", "valor_produto": "8" }
+body: { "marca": "Nestle", "nome_produto": "Chocolate", "valor_produto": "8" }
+
+Usuarios:
+body: { "nome": "Heldon", "email": "heldon@gmail.com", "senha": "abcde" }
+body: { "nome": "Bruna", "email": "bruna@gmail.com", "senha": "fghij" }
+body: { "nome": "Eduarda", "email": "eduarda@gmail.com", "senha": "12345" }

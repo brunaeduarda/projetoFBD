@@ -20,7 +20,7 @@ def get_vendas():
 @app_venda.route('/{}/add/'.format(app_name), methods=['POST'])
 def new_vendas():
     try:
-        data = request.args.to_dict(flat=True)
+        data = request.form.to_dict(flat=True)
         venda = Venda(valor_venda=data.get('valor_venda'))
         venda = dao.save(venda)
     except Exception as e:
@@ -31,12 +31,12 @@ def new_vendas():
                 'error': True,
                 'message': str(e)
             }, 400)
-    return make_response({'valor_venda': venda.codigo_venda}, 201)
+    return make_response({'codigo_venda': venda.codigo_venda}, 201)
 
 
 @app_venda.route('/{}/<int:codigo_venda>/'.format(app_name), methods=['PUT'])
 def update_vendas(codigo_venda):
-    data = request.args.to_dict(flat=True)
+    data = request.form.to_dict(flat=True)
     venda = dao.get_by_codigo_venda(codigo_venda)
     if not venda:
         return make_response({'error': '{} não existe'.format(app_name)}, 404)

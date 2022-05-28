@@ -20,7 +20,7 @@ def get_usuarios():
 @app_usuario.route('/{}/add/'.format(app_name), methods=['POST'])
 def new_usuarios():
     try:
-        data = request.args.to_dict(flat=True)
+        data = request.form.to_dict(flat=True)
         usuario = Usuario(nome=data.get('nome'),
                           email=data.get('email'),
                           senha=data.get('senha'))
@@ -33,12 +33,13 @@ def new_usuarios():
                 'error': True,
                 'message': str(e)
             }, 400)
+    print(data)
     return make_response({'matricula': usuario.matricula}, 201)
 
 
 @app_usuario.route('/{}/<int:matricula>/'.format(app_name), methods=['PUT'])
 def update_usuarios(matricula):
-    data = request.args.to_dict(flat=True)
+    data = request.form.to_dict(flat=True)
     usuario = dao.get_by_matricula(matricula)
     if not usuario:
         return make_response({'error': '{} não existe'.format(app_name)}, 404)

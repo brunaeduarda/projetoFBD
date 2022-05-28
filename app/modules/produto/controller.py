@@ -20,7 +20,7 @@ def get_produtos():
 @app_produto.route('/{}/add/'.format(app_name), methods=['POST'])
 def new_produtos():
     try:
-        data = request.args.to_dict(flat=True)
+        data = request.form.to_dict(flat=True)
         produto = Produto(nome_produto=data.get('nome_produto'),
                           marca=data.get('marca'),
                           valor_produto=data.get('valor_produto'))
@@ -38,7 +38,7 @@ def new_produtos():
 
 @app_produto.route('/{}/<int:codigo_produto>/'.format(app_name), methods=['PUT'])
 def update_produtos(codigo_produto):
-    data = request.args.to_dict(flat=True)
+    data = request.form.to_dict(flat=True)
     produto = dao.get_by_codigo_produto(codigo_produto)
     if not produto:
         return make_response({'error': '{} não existe'.format(app_name)}, 404)

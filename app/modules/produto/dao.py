@@ -1,4 +1,4 @@
-NAME_TABLE_SQL = "PRODUTO"
+TABLE_SQL_TABLE = 'PRODUTOS'
 _SCRIPT_SQL_INSERT = 'INSERT INTO PRODUTOS (marca, nome_produto, valor_produto) values (%s, %s, %s) ' \
                      'returning codigo_produto'
 _SCRIPT_SQL_UPDATE_BY_CODIGO_PRODUTO = 'UPDATE PRODUTOS SET {} WHERE CODIGO_PRODUTO={}'

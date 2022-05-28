@@ -1,9 +1,9 @@
-NAME_TABLE_SQL = "USUARIO"
-_SCRIPT_SQL_INSERT = 'INSERT INTO USUARIO (nome, email, senha) values (%s, %s, %s) returning matricula'
-_SCRIPT_SQL_UPDATE_BY_MATRICULA = 'UPDATE USUARIO SET {} WHERE MATRICULA={}'
-_SCRIPT_SQL_SELECT_BY_MATRICULA = "SELECT * FROM USUARIO WHERE matricula={}"
-_SCRIPT_SQL_SELECT = 'SELECT * FROM USUARIO'
-_SCRIPT_SQL_DELETE_BY_MATRICULA = "DELETE FROM USUARIO WHERE MATRICULA={}"
+TABLE_SQL_TABLE = 'USUARIOS'
+_SCRIPT_SQL_INSERT = 'INSERT INTO USUARIOS (nome, email, senha) values (%s, %s, %s) returning matricula'
+_SCRIPT_SQL_UPDATE_BY_MATRICULA = 'UPDATE USUARIOS SET {} WHERE MATRICULA={}'
+_SCRIPT_SQL_SELECT_BY_MATRICULA = "SELECT * FROM USUARIOS WHERE matricula={}"
+_SCRIPT_SQL_SELECT = 'SELECT * FROM USUARIOS'
+_SCRIPT_SQL_DELETE_BY_MATRICULA = "DELETE FROM USUARIOS WHERE MATRICULA={}"
 
 
 class UsuarioDao:
@@ -40,6 +40,7 @@ class UsuarioDao:
             usuario_cursor = cursor.fetchone()
             usuarios.append(usuario)
         cursor.close()
+        print(usuarios)
         return usuarios
 
     def get_by_matricula(self, matricula):
